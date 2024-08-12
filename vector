@@ -1,0 +1,54 @@
+package vector;
+
+import java.util.Scanner;
+
+/**
+ *
+ * @author MALLI
+ */
+public class Vector {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+          Scanner scanner = new Scanner(System.in);
+        int[] numeros = new int[10];
+        int[] contador = new int[10];
+        int suma = 0;
+
+       
+        System.out.println("Ingrese 10 numeros:");
+        for (int i = 0; i < 10; i++) {
+            numeros[i] = scanner.nextInt();
+            suma += numeros[i];
+        }
+
+      
+        for (int i = 0; i < 10; i++) {
+            for (int j = 0; j < 10; j++) {
+                if (numeros[i] == numeros[j]) {
+                    contador[i]++;
+                }
+            }
+        }
+
+        
+        System.out.println("\nFrecuencia de cada numero:");
+        boolean[] mostrado = new boolean[10];
+        for (int i = 0; i < 10; i++) {
+            if (!mostrado[i]) {
+                System.out.println("El numero " + numeros[i] + " se ingreso " + contador[i] + " veces.");
+                for (int j = i + 1; j < 10; j++) {
+                    if (numeros[i] == numeros[j]) {
+                        mostrado[j] = true;
+                    }
+                }
+            }
+        }
+
+       
+        double promedio = (double) suma / numeros.length;
+        System.out.println("\nEl promedio de los numeos ingresados es: " + promedio);
+    }
+}
